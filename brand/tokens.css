@@ -1,0 +1,15 @@
+/* Fuente canónica de color y forma. La web importa equivalentes en src/app/globals.css. */
+:root {
+  --sa-ink: #0b1f33;
+  --sa-paper: #f6f3ee;
+  --sa-copper: #b87333;
+  --sa-scan: #1f5c66;
+  --sa-scan-bright: #2f7a86;
+  --sa-mist: #e8eef0;
+  --sa-alert: #9b2c2c;
+  --sa-ok: #2f6d4f;
+  --sa-white: #ffffff;
+  --sa-radius: 8px;
+  --sa-rule: 1px solid var(--sa-copper);
+  --sa-margin-mm: 12mm;
+}
