@@ -80,7 +80,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     window.dispatchEvent(new Event(EVENT));
   }, []);
 
-  const setTheme = useCallback((value: ThemeChoice) => {
+  const theme = useSyncExternalStore(subscribe, getTheme, (): ThemeChoice => "light");
     window.localStorage.setItem(THEME_KEY, value);
     applyTheme(value);
     window.dispatchEvent(new Event(EVENT));
