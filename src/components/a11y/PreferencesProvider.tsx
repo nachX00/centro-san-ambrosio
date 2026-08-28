@@ -54,7 +54,7 @@ function applyTheme(theme: ThemeChoice) {
 
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   const largeText = useSyncExternalStore(subscribe, getLargeText, () => false);
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "light");
+  const theme = useSyncExternalStore(subscribe, getTheme, (): ThemeChoice => "light");
 
   useEffect(() => {
     document.documentElement.dataset.largeText = largeText ? "true" : "false";
@@ -80,7 +80,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     window.dispatchEvent(new Event(EVENT));
   }, []);
 
-  const theme = useSyncExternalStore(subscribe, getTheme, (): ThemeChoice => "light");
+  const setTheme = useCallback((value: ThemeChoice) => {
     window.localStorage.setItem(THEME_KEY, value);
     applyTheme(value);
     window.dispatchEvent(new Event(EVENT));
